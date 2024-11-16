@@ -5,19 +5,21 @@ using UnityEngine.Experimental.GlobalIllumination;
 
 public class LightDoor : MonoBehaviour
 {
-    [SerializeField] private GameObject mimic;
-    [SerializeField] private Material lightOnMaterial;
+    [SerializeField] private int idLight;
+    public Material lightOnMaterial;
     [SerializeField] private GameObject pointLight;
     // Start is called before the first frame update
-    void Start()
+
+    void Update()
     {
-        if (mimic == null)
-            SetLightOn();
     }
 
-    public void SetLightOn()
+    public void SetLightOn(int idMimic)
     {
-        gameObject.GetComponent<MeshRenderer>().material = lightOnMaterial;
-        pointLight.SetActive(true);
+        if (idLight == idMimic)
+        {
+            gameObject.GetComponent<MeshRenderer>().material = lightOnMaterial;
+            pointLight.SetActive(true);
+        }
     }
 }

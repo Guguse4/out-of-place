@@ -4,10 +4,9 @@ using UnityEngine;
 
 public class PlayerShoot : MonoBehaviour
 {
-    public Transform bulletPositionSpawn;
     public GameObject bulletPrefab;
     private PlayerManager playerManager;
-    MimicManager mimicManager;
+    [SerializeField] private LightDoor[] lightDoor;
 
     [SerializeField] private Camera fpsCam;
     [SerializeField] private float aimDistanceFromCamera = 1000f;
@@ -52,11 +51,19 @@ public class PlayerShoot : MonoBehaviour
 
         if (hit.transform.CompareTag("Mimic"))
         {
+            for(int i = 0; i < lightDoor.Length; i++)
+            {
+                lightDoor[i].SetLightOn(hit.transform.GetComponent<MimicManager>().GetIdMimic());
+            }
+
             Destroy(hit.transform.gameObject);
+            playerManager.numberOfMimicFound++;
         }
         else
         {
-            Instantiate(bulletPrefab, hit.point, Quaternion.LookRotation(hit.normal));
+            GameObject impact = Instantiate(bulletPrefab, hit.point, Quaternion.LookRotation(hit.normal));
+            Debug.Log(impact.transform.rotation);
+            impact.transform.position = new Vector3(impact.transform.position.x, impact.transform.position.y + 0.001f, impact.transform.position.z);
             playerManager.numberOfHP -= 1;
             Debug.Log("Vie restante : " + playerManager.numberOfHP);
         }

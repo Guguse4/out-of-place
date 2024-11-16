@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class MimicManager : MonoBehaviour
 {
+    [SerializeField] private int idMimic;
     // Start is called before the first frame update
     void Start()
     {
@@ -16,4 +17,6 @@ public class MimicManager : MonoBehaviour
         
     }
 
+    public int GetIdMimic()
+        { return idMimic; }
 }
