@@ -19,6 +19,7 @@ public class PauseManager : MonoBehaviour
     {
         // Initialize sensitivity slider
         sensitivitySlider.value = playerCam.sensX;
+        //Debug.Log(playerCam.sensX);
         sensitivitySlider.onValueChanged.AddListener(UpdateSensitivity);
 
         // Initialize volume slider
@@ -69,7 +70,6 @@ public class PauseManager : MonoBehaviour
 
     private void UpdateVolume(float newVolume)
     {
-        // Convert slider value (0 to 1) to decibels (-80 to 0) don't know why but hey
         float volumeInDecibels = Mathf.Log10(Mathf.Clamp(newVolume, 0.0001f, 1f)) * 20f;
         audioMixer.SetFloat("MasterVolume", volumeInDecibels);
     }
