@@ -6,19 +6,16 @@ using UnityEngine.UI;
 
 public class PauseManager : MonoBehaviour
 {
-    public GameObject pauseMenuUI; // Reference to the pause menu UI
-    public Slider sensitivitySlider; // Reference to the slider UI element
-    //public CameraController cameraController; // Reference to the camera controller script
+    public GameObject pauseMenuUI;       // Reference to the pause menu UI
+    public Slider sensitivitySlider;    // Reference to the slider UI element
+    public PlayerCam playerCam;         // Reference to the PlayerCam script
 
-    private bool isPaused = false; // Tracks whether the game is paused
+    private bool isPaused = false;      // Tracks whether the game is paused
 
     void Start()
     {
-        // Set the slider's default value to the camera's current sensitivity
-        //sensitivitySlider.value = cameraController.mouseSensitivity;
-
-        // Add a listener to update sensitivity when the slider value changes
-        //sensitivitySlider.onValueChanged.AddListener(cameraController.SetMouseSensitivity);
+        sensitivitySlider.value = playerCam.sensX;
+        sensitivitySlider.onValueChanged.AddListener(UpdateSensitivity);
     }
 
     void Update()
@@ -37,6 +34,8 @@ public class PauseManager : MonoBehaviour
         pauseMenuUI.SetActive(false);
         Time.timeScale = 1f;
         isPaused = false;
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
 
     public void Pause()
@@ -44,11 +43,19 @@ public class PauseManager : MonoBehaviour
         pauseMenuUI.SetActive(true);
         Time.timeScale = 0f;
         isPaused = true;
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
     }
 
     public void LoadMainMenu()
     {
         Time.timeScale = 1f;
-        SceneManager.LoadScene("MainMenu"); // change depending the name, for now i did mainMenu but the firstone like 0 could be better
+        SceneManager.LoadScene("MainMenu"); // to change 
+    }
+
+    private void UpdateSensitivity(float newSensitivity)
+    {
+        playerCam.sensX = newSensitivity;
+        playerCam.sensY = newSensitivity;
     }
 }
