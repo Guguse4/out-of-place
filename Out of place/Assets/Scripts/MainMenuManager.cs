@@ -6,28 +6,27 @@ using UnityEngine.Audio;
 public class MainMenuManager : MonoBehaviour
 {
     [Header("Panels")]
-    [SerializeField] private GameObject panelMainMenu; // Reference to the Main Menu Panel
-    [SerializeField] private GameObject panelSettings; // Reference to the Settings Panel
+    [SerializeField] private GameObject panelMainMenu; 
+    [SerializeField] private GameObject panelSettings; 
 
     [Header("Volume Control")]
-    [SerializeField] private Slider volumeSlider; // Reference to the Volume Slider
-    [SerializeField] private AudioMixer audioMixer; // Reference to the Audio Mixer
+    [SerializeField] private Slider volumeSlider; 
+    [SerializeField] private AudioMixer audioMixer;
 
     private void Start()
     {
-        // Ensure the Main Menu Panel is active and the Settings Panel is inactive
         panelMainMenu.SetActive(true);
         panelSettings.SetActive(false);
 
-        // Initialize the volume slider
+        
         if (volumeSlider != null)
         {
-            float savedVolume = PlayerPrefs.GetFloat("MasterVolume", 0.75f); // Default to 75% volume
+            float savedVolume = PlayerPrefs.GetFloat("MasterVolume", 0.75f);
             volumeSlider.value = savedVolume;
             SetVolume(savedVolume);
         }
 
-        // Add a listener to the volume slider to update the volume
+        
         if (volumeSlider != null)
         {
             volumeSlider.onValueChanged.AddListener(SetVolume);

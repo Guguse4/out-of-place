@@ -41,8 +41,8 @@ public class LifeDisplayManager : MonoBehaviour
         // Add new life rectangles if lives have increased
         while (lifeIcons.Count < currentLives)
         {
-            GameObject newLife = Instantiate(lifePrefab, lifeContainer); // Create a new life rectangle
-            lifeIcons.Add(newLife); // Add it to the list
+            GameObject newLife = Instantiate(lifePrefab, lifeContainer); 
+            lifeIcons.Add(newLife);
         }
     }
 }

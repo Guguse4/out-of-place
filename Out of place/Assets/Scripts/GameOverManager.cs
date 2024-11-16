@@ -3,8 +3,8 @@ using UnityEngine.SceneManagement;
 
 public class GameOverManager : MonoBehaviour
 {
-    [SerializeField] private GameObject lostMenuPanel; // Reference to the Lost Menu Panel
-    [SerializeField] private PlayerManager playerManager; // Reference to the PlayerManager script
+    [SerializeField] private GameObject lostMenuPanel; 
+    [SerializeField] private PlayerManager playerManager; 
 
     void Update()
     {
@@ -21,9 +21,9 @@ public class GameOverManager : MonoBehaviour
         if (lostMenuPanel != null && !lostMenuPanel.activeSelf)
         {
             lostMenuPanel.SetActive(true);
-            Time.timeScale = 0f; // Pause the game
-            Cursor.lockState = CursorLockMode.None; // Unlock the cursor
-            Cursor.visible = true; // Show the cursor
+            Time.timeScale = 0f; 
+            Cursor.lockState = CursorLockMode.None; 
+            Cursor.visible = true; 
         }
     }
 
@@ -31,7 +31,7 @@ public class GameOverManager : MonoBehaviour
     public void LoadMainMenu()
     {
         // Load the main menu scene
-        Time.timeScale = 1f; // Resume the game
+        Time.timeScale = 1f; 
         SceneManager.LoadScene("MainMenu"); 
     }
 }
