@@ -4,13 +4,13 @@ using UnityEngine.SceneManagement;
 public class SceneChanger : MonoBehaviour
 {
     public float delay = 1f; // Temps d'attente avant le changement de scène
-    public AudioSource masterAudioSource; // Référence à l'audio du "Master"
+    public AudioSource masterAudioSource; 
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
-            // Synchroniser les audios des objets avec le tag "Mimic"
+            
             SyncMimicAudio();
 
             // Déclenche le changement de scène après un délai

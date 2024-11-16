@@ -3,15 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-using UnityEngine.Audio; // Required for AudioMixer
+using UnityEngine.Audio; 
 
 public class PauseManager : MonoBehaviour
 {
-    public GameObject pauseMenuUI;       // Reference to the pause menu UI
-    public Slider sensitivitySlider;    // Reference to the slider for sensitivity
-    public Slider volumeSlider;         // Reference to the slider for volume
-    public PlayerCam playerCam;         // Reference to the PlayerCam script
-    public AudioMixer audioMixer;       // Reference to the AudioMixer
+    public GameObject pauseMenuUI;       
+    public Slider sensitivitySlider;    
+    public Slider volumeSlider;         
+    public PlayerCam playerCam;         
+    public AudioMixer audioMixer;       
 
     private bool isPaused = false;      // Tracks whether the game is paused
     public bool IsPaused => isPaused;
@@ -23,7 +23,7 @@ public class PauseManager : MonoBehaviour
         sensitivitySlider.onValueChanged.AddListener(UpdateSensitivity);
 
         // Initialize volume slider
-        volumeSlider.value = 0.75f; // Default value (change as needed)
+        volumeSlider.value = 0.75f; 
         volumeSlider.onValueChanged.AddListener(UpdateVolume);
     }
 

@@ -4,11 +4,11 @@ using UnityEngine.UI;
 
 public class LifeDisplayManager : MonoBehaviour
 {
-    [SerializeField] private PlayerManager playerManager; // Reference to the PlayerManager script
-    [SerializeField] private GameObject lifePrefab;       // Prefab for the life rectangle
-    [SerializeField] private Transform lifeContainer;     // UI container for the life rectangles
+    [SerializeField] private PlayerManager playerManager; 
+    [SerializeField] private GameObject lifePrefab;       
+    [SerializeField] private Transform lifeContainer;     
 
-    private List<GameObject> lifeIcons = new List<GameObject>(); // List to store active life rectangles
+    private List<GameObject> lifeIcons = new List<GameObject>(); 
 
     void Start()
     {
