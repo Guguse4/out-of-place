@@ -7,7 +7,7 @@ public class PlayerShoot : MonoBehaviour
     public Transform bulletPositionSpawn;
     public GameObject bulletPrefab;
     private PlayerManager playerManager;
-    MimicManager mimicManager;
+    [SerializeField] private LightDoor[] lightDoor;
 
     [SerializeField] private Camera fpsCam;
     [SerializeField] private float aimDistanceFromCamera = 1000f;
@@ -52,7 +52,13 @@ public class PlayerShoot : MonoBehaviour
 
         if (hit.transform.CompareTag("Mimic"))
         {
+            for(int i = 0; i < lightDoor.Length; i++)
+            {
+                lightDoor[i].SetLightOn(hit.transform.GetComponent<MimicManager>().GetIdMimic());
+            }
+
             Destroy(hit.transform.gameObject);
+            playerManager.numberOfMimicFound++;
         }
         else
         {

@@ -649,7 +649,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5d9385e73a3d694494aff7067fc618f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mimic: {fileID: 1368045855}
+  idLight: 1
   lightOnMaterial: {fileID: 2100000, guid: ab486aa17c6ba664b9e3ca68b2fe8030, type: 2}
   pointLight: {fileID: 839677447}
 --- !u!1 &545794230
@@ -771,7 +771,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5d9385e73a3d694494aff7067fc618f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mimic: {fileID: 1955330404}
+  idLight: 2
   lightOnMaterial: {fileID: 2100000, guid: ab486aa17c6ba664b9e3ca68b2fe8030, type: 2}
   pointLight: {fileID: 327537769}
 --- !u!1 &661937952
@@ -1558,7 +1558,6 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: ab486aa17c6ba664b9e3ca68b2fe8030, type: 2}
   - {fileID: 2100000, guid: c4caccde77a9caa40b1ebc7d2ca32194, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
@@ -1617,7 +1616,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5d9385e73a3d694494aff7067fc618f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mimic: {fileID: 2008042034}
+  idLight: 3
   lightOnMaterial: {fileID: 2100000, guid: ab486aa17c6ba664b9e3ca68b2fe8030, type: 2}
   pointLight: {fileID: 420923929}
 --- !u!1 &1225645751
@@ -1999,6 +1998,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletPositionSpawn: {fileID: 1827105635}
   bulletPrefab: {fileID: 8998760123474747865, guid: 80b6206160a6fd44dbf690583d7813e4, type: 3}
+  lightDoor:
+  - {fileID: 476639522}
+  - {fileID: 545794235}
+  - {fileID: 1160761936}
   fpsCam: {fileID: 963194227}
   aimDistanceFromCamera: 50
 --- !u!1 &1368045855
@@ -2013,6 +2016,7 @@ GameObject:
   - component: {fileID: 1368045858}
   - component: {fileID: 1368045857}
   - component: {fileID: 1368045856}
+  - component: {fileID: 1368045860}
   m_Layer: 0
   m_Name: Mimic1
   m_TagString: Mimic
@@ -2106,6 +2110,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 721151322}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1368045860
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1368045855}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3882aefe6fa475b429ecdf62ffe6256b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  idMimic: 1
 --- !u!1 &1499661736
 GameObject:
   m_ObjectHideFlags: 0
@@ -2452,6 +2469,7 @@ GameObject:
   - component: {fileID: 1955330407}
   - component: {fileID: 1955330406}
   - component: {fileID: 1955330405}
+  - component: {fileID: 1955330409}
   m_Layer: 0
   m_Name: Mimic2
   m_TagString: Mimic
@@ -2545,6 +2563,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 721151322}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1955330409
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1955330404}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3882aefe6fa475b429ecdf62ffe6256b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  idMimic: 2
 --- !u!1 &1977032322
 GameObject:
   m_ObjectHideFlags: 0
@@ -2637,6 +2668,7 @@ GameObject:
   - component: {fileID: 2008042037}
   - component: {fileID: 2008042036}
   - component: {fileID: 2008042035}
+  - component: {fileID: 2008042039}
   m_Layer: 0
   m_Name: Mimic3
   m_TagString: Mimic
@@ -2730,6 +2762,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 721151322}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2008042039
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2008042034}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3882aefe6fa475b429ecdf62ffe6256b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  idMimic: 3
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

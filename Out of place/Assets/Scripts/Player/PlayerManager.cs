@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerManager : MonoBehaviour
 {
-    [SerializeField] private int numberOfMimicFound = 0;
+    public int numberOfMimicFound = 0;
     public int numberOfHP = 3;
     private bool isGameOver = false;
 
