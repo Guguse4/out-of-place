@@ -35,6 +35,7 @@ public class PauseManager : MonoBehaviour
         Time.timeScale = 1f;
         isPaused = false;
         Cursor.lockState = CursorLockMode.Locked;
+        Debug.Log(Cursor.lockState);
         Cursor.visible = false;
     }
 
@@ -44,6 +45,7 @@ public class PauseManager : MonoBehaviour
         Time.timeScale = 0f;
         isPaused = true;
         Cursor.lockState = CursorLockMode.None;
+        Debug.Log(Cursor.lockState);
         Cursor.visible = true;
     }
 
