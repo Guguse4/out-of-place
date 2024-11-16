@@ -20,6 +20,7 @@ public class PlayerCam : MonoBehaviour
 
     private void Update()
     {
+        Cursor.visible = true; // c'est la pire solution du monde mais fiiiine
         //get mouse input
         float mouseX = Input.GetAxisRaw("Mouse X") * Time.deltaTime * sensX;
         float mouseY = Input.GetAxisRaw("Mouse Y") * Time.deltaTime * sensY;
