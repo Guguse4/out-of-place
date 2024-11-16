@@ -14,7 +14,7 @@ public class PauseManager : MonoBehaviour
     public AudioMixer audioMixer;       // Reference to the AudioMixer
 
     private bool isPaused = false;      // Tracks whether the game is paused
-
+    public bool IsPaused => isPaused;
     void Start()
     {
         // Initialize sensitivity slider
