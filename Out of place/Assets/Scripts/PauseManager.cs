@@ -11,7 +11,13 @@ public class PauseManager : MonoBehaviour
     public Slider sensitivitySlider;    
     public Slider volumeSlider;         
     public PlayerCam playerCam;         
-    public AudioMixer audioMixer;       
+    public AudioMixer audioMixer;
+    public LightDoor[] lightDoors;
+    public PlayerManager playerManager;
+
+
+    [SerializeField] private LifeDisplayManager lifeDisplayManager;
+
 
     private bool isPaused = false;      // Tracks whether the game is paused
     public bool IsPaused => isPaused;
@@ -54,12 +60,26 @@ public class PauseManager : MonoBehaviour
         isPaused = true;
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
-    }
-    public void KillMimic()
-    {
-        // do what needs to kill a mimic
-        Debug.Log("QUOI QUOI");
 
+    }
+    public void KillMimic(GameObject mimic)
+    {
+        MimicManager mimicManager = mimic.GetComponent<MimicManager>();
+
+        for (int i = 0; i<=lightDoors.Length; i++)
+        {
+            lightDoors[i].SetLightOn(mimicManager.GetIdMimic());
+        }
+
+        // Destroy the mimic object
+        Destroy(mimic); //faire autre chose enlever la vie  ici changer le booleen de IsLevel3 en false
+        // Instead of destroying the mimic, adjust the game state
+        if (lifeDisplayManager != null)
+        {
+            lifeDisplayManager.IsLevel3 = false; // Disable Level 3 behavior
+        }
+
+        playerManager.numberOfMimicFound++;
     }
     public void LoadMainMenu()
     {

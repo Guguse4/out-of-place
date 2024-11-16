@@ -1354,7 +1354,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5d9385e73a3d694494aff7067fc618f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mimic: {fileID: 1368045855}
+  idLight: 0
   lightOnMaterial: {fileID: 2100000, guid: ab486aa17c6ba664b9e3ca68b2fe8030, type: 2}
   pointLight: {fileID: 839677447}
 --- !u!1 &489133852
@@ -1544,7 +1544,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5d9385e73a3d694494aff7067fc618f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mimic: {fileID: 1955330404}
+  idLight: 0
   lightOnMaterial: {fileID: 2100000, guid: ab486aa17c6ba664b9e3ca68b2fe8030, type: 2}
   pointLight: {fileID: 327537769}
 --- !u!1 &661937952
@@ -1788,7 +1788,7 @@ GameObject:
   - component: {fileID: 721151322}
   m_Layer: 0
   m_Name: Mimic
-  m_TagString: Untagged
+  m_TagString: Mimic
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3285,7 +3285,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5d9385e73a3d694494aff7067fc618f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mimic: {fileID: 2008042034}
+  idLight: 0
   lightOnMaterial: {fileID: 2100000, guid: ab486aa17c6ba664b9e3ca68b2fe8030, type: 2}
   pointLight: {fileID: 420923929}
 --- !u!1 &1164077841
@@ -3528,6 +3528,9 @@ MonoBehaviour:
   volumeSlider: {fileID: 1590547284}
   playerCam: {fileID: 963194229}
   audioMixer: {fileID: 24100000, guid: 0298ac8d9b870424e888c3e2e110ce4a, type: 2}
+  lightDoors: []
+  playerManager: {fileID: 305674685}
+  lifeDisplayManager: {fileID: 2146075329}
 --- !u!114 &1248866506
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3994,8 +3997,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 880fb9277c31f084c8048c54fdc1a9a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletPositionSpawn: {fileID: 1827105635}
   bulletPrefab: {fileID: 8998760123474747865, guid: 80b6206160a6fd44dbf690583d7813e4, type: 3}
+  lightDoor: []
   fpsCam: {fileID: 963194227}
   aimDistanceFromCamera: 50
   pauseManager: {fileID: 1248866505}
@@ -5618,9 +5621,10 @@ GameObject:
   - component: {fileID: 2084426078}
   - component: {fileID: 2084426077}
   - component: {fileID: 2084426076}
+  - component: {fileID: 2084426079}
   m_Layer: 5
   m_Name: MIMICButton
-  m_TagString: Untagged
+  m_TagString: Mimic
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5692,10 +5696,10 @@ MonoBehaviour:
       - m_Target: {fileID: 1248866505}
         m_TargetAssemblyTypeName: PauseManager, Assembly-CSharp
         m_MethodName: KillMimic
-        m_Mode: 1
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 2084426074}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -5739,6 +5743,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2084426074}
   m_CullTransparentMesh: 1
+--- !u!114 &2084426079
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2084426074}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3882aefe6fa475b429ecdf62ffe6256b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  idMimic: 0
 --- !u!1 &2146075328
 GameObject:
   m_ObjectHideFlags: 0
@@ -5774,6 +5791,7 @@ MonoBehaviour:
   playerManager: {fileID: 305674685}
   lifePrefab: {fileID: 4438772680533757689, guid: 11e4626394d4ee4459987dee2c9eb273, type: 3}
   lifeContainer: {fileID: 1343914649}
+  IsLevel3: 1
 --- !u!114 &2146075330
 MonoBehaviour:
   m_ObjectHideFlags: 0
