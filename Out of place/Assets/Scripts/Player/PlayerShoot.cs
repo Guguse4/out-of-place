@@ -7,10 +7,7 @@ public class PlayerShoot : MonoBehaviour
     public Transform bulletPositionSpawn;
     public GameObject bulletPrefab;
     private PlayerManager playerManager;
-
-
-    public float bulletSpeed = 10f;
-    private float bulletTimeOfLife = 4f;
+    MimicManager mimicManager;
 
     [SerializeField] private Camera fpsCam;
     [SerializeField] private float aimDistanceFromCamera = 1000f;
@@ -45,7 +42,16 @@ public class PlayerShoot : MonoBehaviour
         else
             targetPoint = ray.GetPoint(aimDistanceFromCamera); // You may need to change this value according to your needs
 
-        // Create the bullet and give it a velocity according to the target point computed before
-        var bullet = Instantiate(bulletPrefab, hit.point, Quaternion.LookRotation(hit.normal));
+
+        if (hit.transform.CompareTag("Mimic"))
+        {
+            Destroy(hit.transform.gameObject);
+        }
+        else
+        {
+            Instantiate(bulletPrefab, hit.point, Quaternion.LookRotation(hit.normal));
+            playerManager.numberOfHP -= 1;
+            Debug.Log("Vie restante : " + playerManager.numberOfHP);
+        }
     }
 }
