@@ -26,7 +26,7 @@ public class PlayerShoot : MonoBehaviour
         {
             return; // Do nothing if the game is paused
         }
-
+        
         if (!playerManager.GetIsGameOver() && Input.GetKeyDown(KeyCode.Mouse0))
         {
             Aim();

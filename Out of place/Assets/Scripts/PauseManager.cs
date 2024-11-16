@@ -66,10 +66,11 @@ public class PauseManager : MonoBehaviour
     {
         MimicManager mimicManager = mimic.GetComponent<MimicManager>();
 
-        for (int i = 0; i<=lightDoors.Length; i++)
+        for (int i = 0; i < lightDoors.Length; i++)
         {
             lightDoors[i].SetLightOn(mimicManager.GetIdMimic());
         }
+        
 
         // Destroy the mimic object
         Destroy(mimic); //faire autre chose enlever la vie  ici changer le booleen de IsLevel3 en false
