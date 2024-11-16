@@ -11,6 +11,8 @@ public class PlayerShoot : MonoBehaviour
 
     [SerializeField] private Camera fpsCam;
     [SerializeField] private float aimDistanceFromCamera = 1000f;
+    [SerializeField] private PauseManager pauseManager; 
+
 
     // Start is called before the first frame update
     void Start()
@@ -21,6 +23,11 @@ public class PlayerShoot : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (pauseManager != null && pauseManager.IsPaused)
+        {
+            return; // Do nothing if the game is paused
+        }
+
         if (!playerManager.GetIsGameOver() && Input.GetKeyDown(KeyCode.Mouse0))
         {
             Aim();

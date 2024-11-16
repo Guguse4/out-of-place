@@ -3070,7 +3070,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_TargetDisplay: 0
 --- !u!224 &1248866509
 RectTransform:
@@ -3479,6 +3479,7 @@ MonoBehaviour:
   bulletPrefab: {fileID: 8998760123474747865, guid: 80b6206160a6fd44dbf690583d7813e4, type: 3}
   fpsCam: {fileID: 963194227}
   aimDistanceFromCamera: 50
+  pauseManager: {fileID: 1248866505}
 --- !u!1 &1330101603
 GameObject:
   m_ObjectHideFlags: 0
