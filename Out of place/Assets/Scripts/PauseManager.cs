@@ -55,7 +55,12 @@ public class PauseManager : MonoBehaviour
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
     }
+    public void KillMimic()
+    {
+        // do what needs to kill a mimic
+        Debug.Log("QUOI QUOI");
 
+    }
     public void LoadMainMenu()
     {
         Time.timeScale = 1f;
@@ -73,4 +78,6 @@ public class PauseManager : MonoBehaviour
         float volumeInDecibels = Mathf.Log10(Mathf.Clamp(newVolume, 0.0001f, 1f)) * 20f;
         audioMixer.SetFloat("MasterVolume", volumeInDecibels);
     }
+
+    
 }
