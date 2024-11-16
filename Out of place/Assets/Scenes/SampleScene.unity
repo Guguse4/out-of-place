@@ -903,6 +903,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   delay: 1
+  masterAudioSource: {fileID: 0}
 --- !u!1 &565773869
 GameObject:
   m_ObjectHideFlags: 0
@@ -2717,7 +2718,7 @@ GameObject:
   - component: {fileID: 1368045860}
   m_Layer: 0
   m_Name: Cube
-  m_TagString: Untagged
+  m_TagString: Mimic
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
