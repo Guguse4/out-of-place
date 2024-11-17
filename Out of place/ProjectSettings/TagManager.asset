@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - Mimic
+  - 'Fin '
+  - FinalScreen
   layers:
   - Default
   - TransparentFX

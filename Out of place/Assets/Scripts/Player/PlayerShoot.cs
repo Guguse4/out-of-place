@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerShoot : MonoBehaviour
 {
@@ -11,6 +12,7 @@ public class PlayerShoot : MonoBehaviour
     [SerializeField] private Camera fpsCam;
     [SerializeField] private float aimDistanceFromCamera = 1000f;
     [SerializeField] private PauseManager pauseManager;
+    [SerializeField] private Salle4MimicController[] salle4MimicController;
 
     [Header("Sound Effects")]
     [SerializeField] private AudioClip hitAlienSound;
@@ -58,14 +60,30 @@ public class PlayerShoot : MonoBehaviour
         if (hit.transform.CompareTag("Mimic"))
         {
             PlaySound(hitAlienSound);
-            for (int i = 0; i < lightDoor.Length; i++)
+            if(SceneManager.GetActiveScene().buildIndex != 5)
             {
-                lightDoor[i].SetLightOn(hit.transform.GetComponent<MimicManager>().GetIdMimic());
+                for (int i = 0; i < lightDoor.Length; i++)
+                {
+                    lightDoor[i].SetLightOn(hit.transform.GetComponent<MimicManager>().GetIdMimic());
+                }
             }
+            else
+            {
+                for (int i = 0; i < lightDoor.Length; i++)
+                {
+                    salle4MimicController[i].SetLightOff(hit.transform.GetComponent<MimicManager>().GetIdMimic());
+                }
+            }
+
 
             Destroy(hit.transform.gameObject);
             playerManager.numberOfMimicFound--;
         }
+        else if(hit.transform.CompareTag("FinalScreen") && playerManager.numberOfMimicFound == 0)
+        {
+            SceneManager.LoadScene("Credits");
+        }
+
         else
         {
             PlaySound(missSound);
