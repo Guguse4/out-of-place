@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -7,6 +8,9 @@ public class LifeDisplayManager : MonoBehaviour
     [SerializeField] private PlayerManager playerManager;
     [SerializeField] private GameObject lifePrefab;
     [SerializeField] private Transform lifeContainer;
+    [SerializeField] private TextMeshProUGUI bottomLeftTextDisplay; // Text display for bottom-left messages
+    [SerializeField] private List<string> bottomLeftMessages; // List of messages to display
+    [SerializeField] private float messageDisplayInterval = 3f; // Time in seconds between messages
     [SerializeField] public bool IsLevel3 = false;
 
     private List<GameObject> lifeIcons = new List<GameObject>();
@@ -20,6 +24,10 @@ public class LifeDisplayManager : MonoBehaviour
         new Vector2(300, 0)    // Position for the fourth life icon
     };
 
+    private int currentMessageIndex = 0;
+    private float messageTimer;
+    private bool allMessagesDisplayed = false;
+
     void Start()
     {
         if (playerManager == null || lifePrefab == null || lifeContainer == null)
@@ -32,12 +40,16 @@ public class LifeDisplayManager : MonoBehaviour
 
         // Initial update to set life icons correctly
         UpdateLifeDisplay();
+        
+        // Initialize the text display
+        bottomLeftTextDisplay.text = ""; // Start with an empty display
     }
 
     void Update()
     {
         // Update life display dynamically
         UpdateLifeDisplay();
+        HandleTextDisplay();
     }
 
     private void InitializeLifeIcons()
@@ -94,5 +106,30 @@ public class LifeDisplayManager : MonoBehaviour
         Debug.Log("Player has died!");
         playerManager.numberOfHP = 0;
         UpdateLifeDisplay(); // Update display to reflect zero lives
+    }
+
+    private void HandleTextDisplay()
+    {
+        if (allMessagesDisplayed || bottomLeftMessages.Count == 0) return;
+
+        // Update the timer
+        messageTimer += Time.deltaTime;
+
+        if (messageTimer >= messageDisplayInterval)
+        {
+            // Display the next message if available
+            if (currentMessageIndex < bottomLeftMessages.Count)
+            {
+                bottomLeftTextDisplay.text += bottomLeftMessages[currentMessageIndex] + "\n"; // Append the new message
+                currentMessageIndex++;
+            }
+            else
+            {
+                // All messages have been displayed
+                allMessagesDisplayed = true;
+            }
+
+            messageTimer = 0f; // Reset the timer
+        }
     }
 }
