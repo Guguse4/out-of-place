@@ -57,7 +57,7 @@ public class PlayerShoot : MonoBehaviour
             }
 
             Destroy(hit.transform.gameObject);
-            playerManager.numberOfMimicFound++;
+            playerManager.numberOfMimicFound--;
         }
         else
         {
