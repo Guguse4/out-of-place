@@ -73,8 +73,7 @@ public class PauseManager : MonoBehaviour
         
 
         // Destroy the mimic object
-        Destroy(mimic); //faire autre chose enlever la vie  ici changer le booleen de IsLevel3 en false
-        // Instead of destroying the mimic, adjust the game state
+        Destroy(mimic); 
         if (lifeDisplayManager != null)
         {
             lifeDisplayManager.IsLevel3 = false; // Disable Level 3 behavior
