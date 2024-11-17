@@ -11,6 +11,7 @@ public class LifeDisplayManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI bottomLeftTextDisplay; // Text display for bottom-left messages
     [SerializeField] private List<string> bottomLeftMessages; // List of messages to display
     [SerializeField] private float messageDisplayInterval = 3f; // Time in seconds between messages
+    [SerializeField] private float clearMessageDelay = 5f;
     [SerializeField] public bool IsLevel3 = false;
 
     private List<GameObject> lifeIcons = new List<GameObject>();
@@ -27,6 +28,8 @@ public class LifeDisplayManager : MonoBehaviour
     private int currentMessageIndex = 0;
     private float messageTimer;
     private bool allMessagesDisplayed = false;
+    private bool clearMessageTriggered = false;
+    private float clearMessageTimer = 0f;
 
     void Start()
     {
@@ -55,6 +58,7 @@ public class LifeDisplayManager : MonoBehaviour
         // Update life display dynamically
         UpdateLifeDisplay();
         HandleTextDisplay();
+        HandleMessageClear();
     }
 
     private void InitializeLifeIcons()
@@ -132,9 +136,25 @@ public class LifeDisplayManager : MonoBehaviour
             {
                 // All messages have been displayed
                 allMessagesDisplayed = true;
+                clearMessageTriggered = true; // Start the clear message timer
             }
 
             messageTimer = 0f; // Reset the timer
+        }
+
+    }
+    private void HandleMessageClear()
+    {
+        if (!clearMessageTriggered) return;
+
+        // Update the clear message timer
+        clearMessageTimer += Time.deltaTime;
+
+        if (clearMessageTimer >= clearMessageDelay)
+        {
+            // Clear all messages
+            bottomLeftTextDisplay.text = "";
+            clearMessageTriggered = false; // Reset the clear trigger
         }
     }
 }
