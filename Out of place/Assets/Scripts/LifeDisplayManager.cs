@@ -11,6 +11,15 @@ public class LifeDisplayManager : MonoBehaviour
 
     private List<GameObject> lifeIcons = new List<GameObject>();
 
+    private const int MaxLives = 4; // Maximum number of lives
+    private readonly Vector2[] IconPositions =
+    {
+        new Vector2(-300, 0), // Position for the first life icon
+        new Vector2(-100, 0),  // Position for the second life icon
+        new Vector2(100, 0),   // Position for the third life icon
+        new Vector2(300, 0)    // Position for the fourth life icon
+    };
+
     void Start()
     {
         if (playerManager == null || lifePrefab == null || lifeContainer == null)
@@ -19,71 +28,71 @@ public class LifeDisplayManager : MonoBehaviour
             return;
         }
 
+        InitializeLifeIcons();
 
-        // Initialize the life display
-        if (IsLevel3)
-            UpdateLifeDisplayLevel3();
-        else
-            UpdateLifeDisplayNormal();
+        // Initial update to set life icons correctly
+        UpdateLifeDisplay();
     }
 
     void Update()
     {
-        if (IsLevel3)
-            UpdateLifeDisplayLevel3();
-        else
-            UpdateLifeDisplayNormal();
+        // Update life display dynamically
+        UpdateLifeDisplay();
     }
 
-    private void UpdateLifeDisplayNormal()
+    private void InitializeLifeIcons()
     {
-        // Ensure the number of life rectangles matches the player's lives
+        // Clear existing icons (if any)
+        foreach (var icon in lifeIcons)
+        {
+            Destroy(icon);
+        }
+        lifeIcons.Clear();
+
+        // Create the maximum number of life icons and position them
+        for (int i = 0; i < MaxLives; i++)
+        {
+            GameObject newLife = Instantiate(lifePrefab, lifeContainer);
+            RectTransform rectTransform = newLife.GetComponent<RectTransform>();
+            if (rectTransform != null)
+            {
+                rectTransform.anchoredPosition = IconPositions[i]; // Set position
+            }
+            newLife.SetActive(false); // Initially, set all icons to inactive
+            lifeIcons.Add(newLife);
+        }
+    }
+
+    private void UpdateLifeDisplay()
+    {
+        // Determine the current number of lives
         int currentLives = playerManager.numberOfHP;
 
-        // Remove excess life rectangles if lives have decreased
-        while (lifeIcons.Count > currentLives)
+        if (IsLevel3)
         {
-            Destroy(lifeIcons[lifeIcons.Count - 1]); // Destroy the last life icon
-            lifeIcons.RemoveAt(lifeIcons.Count - 1);
+            currentLives += 1; // Add an extra life for Level 3
         }
 
-        // Add new life rectangles if lives have increased
-        while (lifeIcons.Count < currentLives)
-        {
-            GameObject newLife = Instantiate(lifePrefab, lifeContainer);
-            lifeIcons.Add(newLife);
-        }
-    }
-    private void UpdateLifeDisplayLevel3()
-    {
-        int currentLives = playerManager.numberOfHP + 1; // Add one extra life in Level 3
+        // Clamp currentLives to match the number of icons
+        currentLives = Mathf.Clamp(currentLives, 0, MaxLives);
 
-        // Check if the player dies at 1 life
-        if (playerManager.numberOfHP == 0)// No sense to have to put 0
+        // Update icon visibility
+        for (int i = 0; i < lifeIcons.Count; i++)
+        {
+            lifeIcons[i].SetActive(i < currentLives);
+        }
+
+        // Handle player death logic if applicable
+        if (currentLives == 0 && IsLevel3)
         {
             HandlePlayerDeath();
-            return;
-        }
-
-        while (lifeIcons.Count > currentLives)
-        {
-            Destroy(lifeIcons[lifeIcons.Count - 1]); // Destroy the last life icon
-            lifeIcons.RemoveAt(lifeIcons.Count - 1);
-        }
-
-        // Add new life rectangles if lives have increased
-        while (lifeIcons.Count < currentLives)
-        {
-            GameObject newLife = Instantiate(lifePrefab, lifeContainer);
-            lifeIcons.Add(newLife);
         }
     }
 
     private void HandlePlayerDeath()
     {
-        UpdateLifeDisplayNormal();
+        Debug.Log("Player has died!");
         playerManager.numberOfHP = 0;
-
+        UpdateLifeDisplay(); // Update display to reflect zero lives
     }
-
 }
