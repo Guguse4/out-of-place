@@ -21,7 +21,7 @@ RenderSettings:
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
   m_AmbientSkyColor: {r: 0.4792453, g: 0.4792453, b: 0.4792453, a: 1}
-  m_AmbientEquatorColor: {r: 0.19245279, g: 0.19245279, b: 0.19245279, a: 1}
+  m_AmbientEquatorColor: {r: 0.4641509, g: 0.4641509, b: 0.4641509, a: 1}
   m_AmbientGroundColor: {r: 0.3660378, g: 0.28388613, b: 0.2313635, a: 1}
   m_AmbientIntensity: 1
   m_AmbientMode: 1
@@ -992,7 +992,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: d5646848cb5edbd48bf755d802d605ff, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1098551319}
   m_SourcePrefab: {fileID: 100100000, guid: d5646848cb5edbd48bf755d802d605ff, type: 3}
 --- !u!4 &135532000 stripped
 Transform:
@@ -1328,7 +1331,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -379, y: -144}
+  m_AnchoredPosition: {x: -379, y: -128}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &243931479
@@ -4380,7 +4383,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: d5646848cb5edbd48bf755d802d605ff, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1981046150}
   m_SourcePrefab: {fileID: 100100000, guid: d5646848cb5edbd48bf755d802d605ff, type: 3}
 --- !u!4 &720732536 stripped
 Transform:
@@ -6176,7 +6182,7 @@ PrefabInstance:
     - target: {fileID: 1015096313925750700, guid: b49accab494da474285cd9680656d841, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: bb323d8906bd59440a0395db83b4509b, type: 2}
+      objectReference: {fileID: 2100000, guid: 95a223803193f424badb88846bdd2009, type: 2}
     - target: {fileID: 1890695230366960438, guid: b49accab494da474285cd9680656d841, type: 3}
       propertyPath: m_LocalScale.x
       value: 1
@@ -6691,6 +6697,33 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: c7129ca1ac5105245b94ab4d543c9305, type: 3}
   m_PrefabInstance: {fileID: 1093992481}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1098551318 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: d5646848cb5edbd48bf755d802d605ff, type: 3}
+  m_PrefabInstance: {fileID: 135531999}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &1098551319
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1098551318}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 0}
 --- !u!1001 &1107216915
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7042,7 +7075,8 @@ MonoBehaviour:
   - A living room? They must be comfortable here.
   - "This lamp casts such peculiar shadows, doesn\u2019t it?"
   - "And this wall... there\u2019s something strange about it."
-  messageDisplayInterval: 10
+  - how odd... did something cling to me?
+  messageDisplayInterval: 6
   clearMessageDelay: 5
   IsLevel3: 1
 --- !u!224 &1178484308
@@ -10374,6 +10408,33 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 523a75c5a0f9a2d44a762b5762220ffb, type: 3}
   m_PrefabInstance: {fileID: 1952539767}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1981046149 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: d5646848cb5edbd48bf755d802d605ff, type: 3}
+  m_PrefabInstance: {fileID: 720732535}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &1981046150
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1981046149}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 0}
 --- !u!1001 &1984533718
 PrefabInstance:
   m_ObjectHideFlags: 0
