@@ -40,9 +40,14 @@ public class LifeDisplayManager : MonoBehaviour
 
         // Initial update to set life icons correctly
         UpdateLifeDisplay();
-        
+
         // Initialize the text display
-        bottomLeftTextDisplay.text = ""; // Start with an empty display
+        //bottomLeftTextDisplay.text = ""; // Start with an empty display
+        if (bottomLeftMessages.Count > 0)
+        {
+            bottomLeftTextDisplay.text = bottomLeftMessages[0] + "\n";
+            currentMessageIndex = 1; // Start from the second message for the timer logic
+        }
     }
 
     void Update()
