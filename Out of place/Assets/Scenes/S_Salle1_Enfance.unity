@@ -4689,9 +4689,9 @@ MonoBehaviour:
   lifeContainer: {fileID: 1616995474}
   bottomLeftTextDisplay: {fileID: 1287741974}
   bottomLeftMessages:
-  - What is this place?
-  - Wait... did that just change shape?
-  - And why does that cube look different?
+  - Hmm, this room... Looks like my room
+  - The little planetarium, with those planets that always turned the same way.
+  - I remember lying here at night, watching the stars shining
   messageDisplayInterval: 10
   clearMessageDelay: 5
   IsLevel3: 0
@@ -5834,9 +5834,9 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 24300002, guid: 0298ac8d9b870424e888c3e2e110ce4a, type: 2}
-  m_audioClip: {fileID: 8300000, guid: 24a27a362c4e6ee4ebb81dfa84e2f95a, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 16b3ac51742835d47ad1ae8c4a624947, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.79
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 1
   Mute: 0
