@@ -24,7 +24,8 @@ public class PlayerManager : MonoBehaviour
         }
         if(numberOfMimicFound <= 0)
         {
-            doorAnimation.GetComponent<Animator>().SetTrigger("DOOR");
+            if(doorAnimation != null) 
+                doorAnimation.GetComponent<Animator>().SetTrigger("DOOR");
         }
     }
 
