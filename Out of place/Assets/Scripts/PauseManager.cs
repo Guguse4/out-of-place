@@ -69,7 +69,7 @@ public class PauseManager : MonoBehaviour
 
         for (int i = 0; i < lightDoors.Length; i++)
         {
-            lightDoors[i].SetLightOn(mimicManager.GetIdMimic());
+            //lightDoors[i].SetLightOn(mimicManager.GetIdMimic());
         }
 
 
@@ -81,7 +81,7 @@ public class PauseManager : MonoBehaviour
             lifeDisplayManager.IsLevel3 = false; // Disable Level 3 behavior
         }
 
-        playerManager.numberOfMimicFound++;
+        playerManager.numberOfMimicFound--;
     }
     public void LoadMainMenu()
     {
