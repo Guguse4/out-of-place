@@ -5353,22 +5353,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2340294323723709713, guid: 20f25eb877a41d84e9175a9876135d1e, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 50a7a5c0193d9ea408fd4d32ef869ea9, type: 2}
-    - target: {fileID: 3112050258396868260, guid: 20f25eb877a41d84e9175a9876135d1e, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 50a7a5c0193d9ea408fd4d32ef869ea9, type: 2}
     - target: {fileID: 5780822928394439356, guid: 20f25eb877a41d84e9175a9876135d1e, type: 3}
       propertyPath: m_Name
       value: M_Pendulum
       objectReference: {fileID: 0}
-    - target: {fileID: 6620139850673867464, guid: 20f25eb877a41d84e9175a9876135d1e, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 50a7a5c0193d9ea408fd4d32ef869ea9, type: 2}
     - target: {fileID: 8521664852181116733, guid: 20f25eb877a41d84e9175a9876135d1e, type: 3}
       propertyPath: m_LocalPosition.x
       value: 4.9768105
