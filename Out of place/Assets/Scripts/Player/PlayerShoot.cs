@@ -79,6 +79,11 @@ public class PlayerShoot : MonoBehaviour
             Destroy(hit.transform.gameObject);
             playerManager.numberOfMimicFound--;
         }
+        else if(hit.transform.CompareTag("FinalScreen") && playerManager.numberOfMimicFound == 0)
+        {
+            SceneManager.LoadScene("Credits");
+        }
+
         else
         {
             PlaySound(missSound);
