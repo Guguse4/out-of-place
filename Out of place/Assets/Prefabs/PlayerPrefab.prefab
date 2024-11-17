@@ -377,6 +377,8 @@ MonoBehaviour:
   fpsCam: {fileID: 8240323294600035083}
   aimDistanceFromCamera: 50
   pauseManager: {fileID: 0}
+  hitAlienSound: {fileID: 8300000, guid: c53875de3d317db40877248c72947d02, type: 3}
+  missSound: {fileID: 8300000, guid: 9e433c90091dcd043a7364a98b84fcee, type: 3}
 --- !u!1 &6283253445797784913
 GameObject:
   m_ObjectHideFlags: 0
@@ -500,6 +502,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   numberOfMimicFound: 0
   numberOfHP: 3
+  doorAnimation: {fileID: 0}
 --- !u!1 &9109800790643047797
 GameObject:
   m_ObjectHideFlags: 0
