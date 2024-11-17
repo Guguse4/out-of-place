@@ -4039,6 +4039,10 @@ PrefabInstance:
       propertyPath: numberOfMimicFound
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 4342991215151841007, guid: cfd7fb21e7dbe5b44a36a804fbd7674f, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5465596395733009524, guid: cfd7fb21e7dbe5b44a36a804fbd7674f, type: 3}
       propertyPath: missSound
       value: 
