@@ -421,7 +421,7 @@ MonoBehaviour:
   playerManager: {fileID: 1584175862}
   lifePrefab: {fileID: 4438772680533757689, guid: 11e4626394d4ee4459987dee2c9eb273, type: 3}
   lifeContainer: {fileID: 1617757681}
-  IsLevel3: 0
+  IsLevel3: 1
 --- !u!114 &114765447
 MonoBehaviour:
   m_ObjectHideFlags: 0
