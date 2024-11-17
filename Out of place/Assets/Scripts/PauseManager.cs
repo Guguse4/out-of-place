@@ -64,14 +64,16 @@ public class PauseManager : MonoBehaviour
     }
     public void KillMimic(GameObject mimic)
     {
+        Debug.Log("je veux tuer un mimic");
         MimicManager mimicManager = mimic.GetComponent<MimicManager>();
 
         for (int i = 0; i < lightDoors.Length; i++)
         {
             lightDoors[i].SetLightOn(mimicManager.GetIdMimic());
         }
-        
 
+
+        Debug.Log("avant de tuer le mimic");
         // Destroy the mimic object
         Destroy(mimic); 
         if (lifeDisplayManager != null)
