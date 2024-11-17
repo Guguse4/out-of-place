@@ -69,7 +69,7 @@ public class PauseManager : MonoBehaviour
 
         for (int i = 0; i < lightDoors.Length; i++)
         {
-            //lightDoors[i].SetLightOn(mimicManager.GetIdMimic());
+            lightDoors[i].SetLightOn(mimicManager.GetIdMimic());
         }
 
 
