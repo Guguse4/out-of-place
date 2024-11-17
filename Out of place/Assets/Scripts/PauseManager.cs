@@ -81,7 +81,7 @@ public class PauseManager : MonoBehaviour
             lifeDisplayManager.IsLevel3 = false; // Disable Level 3 behavior
         }
 
-        playerManager.numberOfMimicFound++;
+        playerManager.numberOfMimicFound--;
     }
     public void LoadMainMenu()
     {

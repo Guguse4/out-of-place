@@ -14,7 +14,6 @@ public class MimicManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
     }
 
     public int GetIdMimic()

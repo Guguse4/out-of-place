@@ -28,10 +28,11 @@ public class GameOverManager : MonoBehaviour
     }
 
     
-    public void LoadMainMenu()
+    public void LoadMainMenu() // we will load the credits instead
     {
         // Load the main menu scene
-        Time.timeScale = 1f; 
-        SceneManager.LoadScene("MainMenu"); 
+        Time.timeScale = 1f;
+        //SceneManager.LoadScene("MainMenu"); 
+        SceneManager.LoadScene("Credits");
     }
 }
