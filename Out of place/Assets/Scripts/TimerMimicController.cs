@@ -14,7 +14,7 @@ public class TimerMimicController : MonoBehaviour
     {
         if (timeBetweenMinutesMovement < 0)
         {
-            timeBetweenMinutesMovement = 10f;
+            timeBetweenMinutesMovement = 15f;
             var minutesRotation = gameObject.transform.localRotation.eulerAngles; //get the angles;
 
             angleOfMinute += rotationAngle;

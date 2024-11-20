@@ -8,6 +8,7 @@ public class LightDoor : MonoBehaviour
     [SerializeField] private int idLight;
     public Material lightOnMaterial;
     [SerializeField] private GameObject pointLight;
+    
     // Start is called before the first frame update
 
     void Update()
@@ -20,6 +21,10 @@ public class LightDoor : MonoBehaviour
         {
             gameObject.GetComponent<MeshRenderer>().material = lightOnMaterial;
             pointLight.SetActive(true);
+            if(gameObject.CompareTag("TutoDoor"))
+            {
+                gameObject.transform.parent.parent.parent.GetComponent<Animator>().SetTrigger("DOOR");
+            }
         }
     }
 }
