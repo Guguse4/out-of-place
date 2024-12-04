@@ -37,10 +37,10 @@ public class PauseManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            if (isPaused)
-                Resume();
-            else
-                Pause();
+            //if (isPaused)
+                //Resume();   Car avec le retour en jeu le curseur ne se remet pas au centre.
+            //else
+                        Pause(); 
         }
     }
 
