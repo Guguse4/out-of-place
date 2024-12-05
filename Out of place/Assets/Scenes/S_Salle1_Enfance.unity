@@ -5050,8 +5050,9 @@ MonoBehaviour:
   bottomLeftTextDisplay: {fileID: 1287741974}
   bottomLeftMessages:
   - Hmm, this room... Looks like my room
-  - The little planetarium, with those planets that always turned the same way.
+  - The little planetarium, with all those planets.
   - I remember lying here at night, watching the stars shining
+  - Strange... I feel like I'm being watched.
   messageDisplayInterval: 10
   clearMessageDelay: 5
   IsLevel3: 0
